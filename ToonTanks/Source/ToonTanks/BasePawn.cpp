@@ -42,6 +42,7 @@ void ABasePawn::Fire()
 	FRotator Rotation = ProjectileSpawnPoint->GetComponentRotation();
 	/*DrawDebugSphere(GetWorld(), ProjectileSpawnPointLocation, 10.f, 12, FColor::Yellow, false, 3.f);*/
 
-	GetWorld()->SpawnActor<AProjectile>(ProjectileClass, Location, Rotation);
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(ProjectileClass, Location, Rotation);
+	Projectile->SetOwner(this);
 }
 
